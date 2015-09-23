@@ -18,14 +18,17 @@
                         tweets: [
                             {
                                 name: "Usario 1",
+                                profile: 'url',
                                 tweet: "Meu Primerio Tweet"
                             },
                             {
                                 name: "Usario 2",
+                                profile: 'url',
                                 tweet: "Legal ComoTweet!"
                             },
                             {
                                 name: "Usario 3",
+                                profile: 'url',
                                 tweet: "Eu amo Como Code"
                             }
                         ]
@@ -33,8 +36,9 @@
                     methods: {
                         add: function(){
                             if (this.name && this.message){
-                                this.tweets.push({
+                                this.attach({
                                     name:this.name,
+                                    profile: 'url',
                                     tweet:this.message
                                 })
 
@@ -46,6 +50,7 @@
                             if (tweet.name && tweet.tweet){
                                 this.tweets.push({
                                     name:tweet.name,
+                                    profile: tweet.profile,
                                     tweet:tweet.tweet
                                 })
                             }
@@ -95,7 +100,7 @@
                             </figcaption>
                         </figure>
                     </div>
-                    <h2 class="uk-margin-top-remove">{{ item.name }}</h2>
+                    <h2 class="uk-margin-top-remove"><a href="{{ item.profile }}">{{ item.name }}</a></h2>
                     <p class="uk-text-large uk-margin-top-remove uk-text-muted">{{ item.tweet }}</p>
                 </div>
             </div>
